@@ -1,0 +1,84 @@
+<% layout("/layouts/boilerplate") %>
+  <body class="show-page-bg">
+    <div class="row mt-3 offset-3">
+      <div class="col-8 show-page">
+        <h2><%= cafeInfo.title %></h2>
+      </div>
+      <div class="col-md-10 col-lg-8 col-sm-12 show-page">
+        <div class="card listing-card">
+          <img class="card-img-top show-img" src=<%= cafeInfo.image.url %> alt="cardimg">
+          <div class="card-body">
+            <p class="card-text"> Owned by <b><%= cafeInfo.owner.username %></b></p>
+            <p class="card-text"> <%= cafeInfo.description %></p>
+            <p class="card-text"><i class="fa-solid fa-phone"></i> <%= cafeInfo.phone %></p>
+            <p class="card-text">cafe location: <%= cafeInfo.location %></p> 
+            <p class="card-text">country: <%= cafeInfo.country %></p> 
+            <form action="\owners\edit">
+              <button class="btn btn-success">Update cafe profile</button>
+            </form> 
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-8 offset-3" >
+      <% if(cafeInfo.reviews.length>0){%>
+        <div class="row">
+          <p><b>All reviews</b></p>
+          <% for(review of cafeInfo.reviews){ %>
+            <div class="card review-card col-3 ms-3 mb-3">
+              <div class="card-body">
+                <h5 class="card-title">@<%= review.author.username %></h5>
+                <p class="starability-result card-text" data-rating="<%= review.rating %>"></p>
+                <p class="cart-text"><%= review.comment %></p>
+              </div>
+            </div>
+          <% } %>
+        </div>
+        <%}%>
+    </div>
+
+    <div class="col-8 offset-3" >
+      <% if(cafeInfo.events.length>0){%>
+        <div class="row">
+          <p><b>All Events</b></p>
+          <% for(event of cafeInfo.events){ %>
+            <div class="event col-5 ms-2 mb-3">
+              <div class="event-body">
+                <h5 class="event-title"><b><%= event.title %></b></h5>
+                <% if(event.image){ %>
+                  <div class="event-image">
+                    <img class="event-img" src=<%= event.image.url %> alt="event-img">
+                  </div>
+                <%}%>
+              
+                <% if(event.price || event.price>0){ %>
+                  <p class="event-text"><b>Price</b> : <%= event.price %></p>
+                <%}else{%>
+                  <p class="event-text"><b>Price</b> : Free</p>
+                <%}%>
+                <b>About event</b>
+                <p class="event-text"><%= event.description %></p>
+                <p class="event-text"><b>Date: &nbsp;</b><%= event.date %></p>
+                <p class="event-text"><b>Time: &nbsp;</b><%= event.time %></p>
+              </div>
+              <% if(event.reviews.length>0){%>
+                <div class="row">
+                  <p><b>All reviews</b></p>
+                  <% for(review of event.reviews){ %>
+                    <div class="card col-5 ms-2 mb-3">
+                      <div class="card-body">
+                        <h5 class="card-title">@<%= review.author.username %></h5>
+                        <p class="starability-result card-text" data-rating="<%= review.rating %>"></p>
+                        <p class="cart-text"><%= review.comment %></p>
+                      </div>
+                    </div>
+                  <% } %>
+                </div>
+                <%}%>
+            </div>
+          <% } %>
+        </div>
+        <%}%>
+    </div>
+  </body>

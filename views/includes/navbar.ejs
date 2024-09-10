@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-md navbar-light bg-body-light border-bottom sticky-top">
+    <div class="container-fluid">
+      <a href="/"><i class="fa-solid fa-mug-hot home-icon"></i></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="/">Home</a>
+        </div>
+        <div class="navbar-nav">
+          <a class="nav-link" href="/caves">Explore</a>
+        </div>
+        <div class="navbar-nav">
+          <a class="nav-link" href="/events">Events</a>
+        </div>
+
+        <div class="navbar-nav ms-auto">
+          
+          <% if(!currUser) {%>
+          <a class="nav-link" href="/signup"><b>Sign-up <i class="fa-solid fa-user-plus"></i></b></a>
+          <a class="nav-link" href="/login"><b>Login <i class="fa-solid fa-right-to-bracket fa-shake"></i></b></a>
+          <% } if(currUser){%>
+            <% if(currUser.userType=="cafeOwner"){%>
+              <a class="nav-link" href="/owners/<%= currUser._id %>/events/new">Host an event</a>
+              <a class="nav-link" href="/owners/<%= currUser._id %>"><%= currUser.username %></a>
+            <%}else if(currUser.userType=="normalUser"){%>
+              <a class="nav-link" href="/owner-confirmation">Register as cafe Owner</a>
+              <a class="nav-link" href="/singer-confirmation">Register as singer</a>
+            <%}else if(currUser.userType=="singer"){%>
+              <a class="nav-link" href="/singers/<%= currUser._id %>/participate">Take the Stage</a>
+              <a class="nav-link" href="/singers/<%= currUser._id %>">profile</a>
+            <% } %>
+          <a class="nav-link" href="/logout"><b>Logout <i class="fa-solid fa-right-from-bracket"></i></b></a>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </nav>

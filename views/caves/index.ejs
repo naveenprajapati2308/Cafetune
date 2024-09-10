@@ -1,0 +1,38 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="index-container">
+  <div class="searchBar">
+    <form class="filters-form" action="/caves" method="POST">
+      <label for="cafeText">Cafe Name</label>
+      <input class="form-control me-2 search-inp" name="cafeText" type="search" placeholder="chappan" aria-label="Search">
+      <label for="location">Location</label>
+      <input class="form-control me-2 search-inp" name="locationText" type="search" placeholder="Indore" aria-label="Search">
+      <button class="btn search-btn cafe-button" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+    </form>
+  
+  </div>
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3 offset-2">
+    <% if(allCaves.length ==0){%>
+      <p style="color: red;" class="offset-3">No match exist of your search!</p>
+    <% }%>
+    <% for(let cafe of allCaves) { %>
+      <a href="/caves/<%= cafe._id %>" class="listing-links">
+        <div class="card listing-card">
+          <img class="card-img-top" src="<%= cafe.image.url %>" alt="cardimg" style="height: 20rem;">
+          <div class="card-img-overlay"></div>
+          <div class="card-body">
+            <p class="card-text">
+              <b>
+                <%= cafe.title %>
+              </b><br>
+              <i class="fa-solid fa-location-dot"></i>
+              <%= cafe.location %>
+            </p>
+
+          </div>
+        </div>
+      </a>
+
+    <% } %>
+  </div>
+</div>

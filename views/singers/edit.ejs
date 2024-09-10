@@ -1,0 +1,126 @@
+<% layout("/layouts/boilerplate") %>
+<style>
+    #edit-page-image{
+        width: 100px;
+    }
+</style>
+  <h3>Edit your Singer profile</h3>
+  <form method="POST" action="/singers/<%= singer._id %>/edit" novalidate class="needs-validation" enctype="multipart/form-data">
+    <div class="row mt-3">
+
+        <div class="mb-3">
+            Current Profile image <br>
+            <img src="<%= singer.photo.url %>" alt="img" id="edit-page-image">
+          </div>
+  
+          <div class="mb-3">
+            <label for="photo" class="form-label">Upload New photo</label>
+            <input name="singer[photo]" type="file" class="form-control" />
+          </div> 
+
+        <div class="mb-3 col-md-6">
+          <label for="fullName" class="form-label">Full name</label>
+          <input name="singer[fullName]" value="<%= singer.fullName %>" type="text" class="form-control" />
+          <div class="invalid-feedback">
+            Price should be valid
+          </div>
+          <div class="valid-feedback">
+            Title looks good!
+          </div>
+        </div>
+
+        <div class="mb-3 col-md-6">
+            <label for="phone" class="form-label">Phone</label>
+            <input name="singer[phone]"  value="<%= singer.phone %>"placeholder="<%= singer.phone %>" type="number" class="form-control" ></input>
+            <div class="invalid-feedback">
+              Please enter a phone content
+            </div>
+        </div>
+        
+        <div class="mb-3 col-md-6">
+          <label for="about" class="form-label">about</label>
+          <textarea name="singer[about]" placeholder="<%= singer.about %>" class="form-control" ><%= singer.about %></textarea>
+          <div class="invalid-feedback">
+            Please enter a about content
+          </div>
+        </div>
+        
+        <div class="mb-3 col-md-6">
+            <label for="experience" class="form-label">Experience</label>
+            <textarea name="singer[experience]" placeholder="<%= singer.experience %>" class="form-control" ><%= singer.experience %></textarea>
+            <div class="invalid-feedback">
+              Please enter a experience content
+            </div>
+        </div>
+
+
+
+
+
+        <div class="mb-3 col-md-6">
+          <label for="country" class="form-label">Country</label>
+          <input name="singer[country]" value="<%= singer.country %>" type="text" class="form-control" required/>
+          <div class="invalid-feedback">
+            Country should be valid
+          </div>
+        </div>
+        
+        
+
+        <div class="mb-3 col-md-6">
+          <label for="location" class="form-label">Location</label>
+          <input name="singer[location]" value="<%= singer.location %>" type="text" class="form-control" required/>
+          <div class="invalid-feedback">
+            Location should be valid
+          </div>
+        </div>
+
+
+        <div class="mb-3 col-md-6">
+            <label for="instagram" class="form-label">Instagram</label>
+            <input name="singer[instagram]" value="<%= singer.instagram %>" type="text" class="form-control" />
+            <div class="invalid-feedback">
+              instagram should be valid
+            </div>
+        </div>
+
+        <div class="mb-3 col-md-6">
+            <label for="facebook" class="form-label">facebook</label>
+            <input name="singer[facebook]" value="<%= singer.facebook %>" type="text" class="form-control" />
+            <div class="invalid-feedback">
+              facebook should be valid
+            </div>
+          </div>
+
+        
+          <div class="mb-3 col-md-6">
+            <label for="twitter" class="form-label">twitter</label>
+            <input name="singer[twitter]" value="<%= singer.twitter %>" type="text" class="form-control" />
+            <div class="invalid-feedback">
+              twitter should be valid
+            </div>
+          </div>
+
+          <div class="mb-3 col-md-6">
+            <label for="education" class="form-label">Highest Education</label>
+            <input name="singer[education]" value="<%= singer.education %>" type="text" class="form-control" />
+            <div class="invalid-feedback">
+              education should be valid
+            </div>
+          </div>
+
+          <div class="mb-3 ">
+            <label for="accomplishments" class="form-label">accomplishments</label>
+            <input name="singer[accomplishments]" value="<%= singer.accomplishments %>" type="text" class="form-control" />
+            <div class="invalid-feedback">
+              accomplishments should be valid
+            </div>
+          </div>
+
+        <button class="btn btn-dark edit-btn mt-3">Edit</button>
+      </div>
+    </div>
+
+    <br><br>
+  </form>
+  </body>

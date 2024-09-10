@@ -1,0 +1,78 @@
+<% layout("/layouts/boilerplate") %>
+<div class="showEvent">
+    <div class="showEvent-img">
+        <h2 class="event-title"><%= event.title %></h2>
+        <div class="event-body">
+            <% if(event.image){ %>
+              <div class="event-image">
+                <img class="event-img" src=<%= event.image.url %> alt="event-img">
+              </div>
+            <%}%>
+          </div>
+    </div>
+    <div class="showEvent-info">
+        <b>About event</b>
+        <p class="event-text"><%= event.description %></p>
+        <p class="event-text"><b>Date: &nbsp;</b><%= event.date %></p>
+        <p class="event-text"><b>Time: &nbsp;</b><%= event.time %></p>
+        <p class="event-text"><b>Phone: </b><%= event.cafe.phone %></p>
+        <% if(event.price || event.price>0){ %>
+            <p class="event-text"><b>Joining Price</b> : <%= event.price %></p>
+        <%}else{%>
+            <p class="event-text"><b>Joining Price</b> : Free</p>
+        <%}%>
+        <% if(!event.hasSinger || currUser.usertype=='singer'){ %>
+          <form action="/singers/<%= currUser._id %>/event/<%= event._id %>">
+            <button class="btn btn-success">Take the stage in this cafe</button>
+            <p style="color: red;"><i>Note: you should call the cafe Owner first before taking the stage</i></p>
+          </form>
+        <%}%>
+    </div>
+</div>
+<% if(currUser) {%>
+    <br>
+    <h4>Leave a comment</h4>
+    <form action="/events/<%= event._id %>/reviews" method="POST" novalidate class="needs-validation ">
+      <div class="mb-3 mt-3">
+        <label for="rating" class="form-label">Rating</label>
+        <fieldset class="starability-slot">
+          <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="1" checked aria-label="No rating." />
+          <input type="radio" id="first-rate1" name="review[rating]" value="1" />
+          <label for="first-rate1" title="Terrible">1 star</label>
+          <input type="radio" id="first-rate2" name="review[rating]" value="2" />
+          <label for="first-rate2" title="Not good">2 stars</label>
+          <input type="radio" id="first-rate3" name="review[rating]" value="3" />
+          <label for="first-rate3" title="Average">3 stars</label>
+          <input type="radio" id="first-rate4" name="review[rating]" value="4" />
+          <label for="first-rate4" title="Very good">4 stars</label>
+          <input type="radio" id="first-rate5" name="review[rating]" value="5" />
+          <label for="first-rate5" title="Amazing">5 stars</label>
+        </fieldset>
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="comment" class="form-label">Comments</label>
+        <textarea name="review[comment]" placeholder="Add a comment" id="comment" cols="30" rows="5" class="form-control" required></textarea>
+        <div class="invalid-feedback">Please add some comments for review!</div>
+      </div>
+      
+      <button class="btn btn-outline-dark mb-3">Submit</button>
+      
+    </form>
+    <hr>
+    <%}%>
+<div class="mt-3">
+    <% if(event.reviews.length>0){%>
+      <div class="row">
+        <p><b>All reviews</b></p>
+        <% for(review of event.reviews){ %>
+          <div class="showEvent-review-card col-5 ms-4 mb-3">
+            <div class="showEvent-review-card-body>
+              <h5 class="showEvent-review-card-title"> @<%= review.author.username %></h5>
+              <p class="starability-result showEvent-review-card-text" data-rating="<%= review.rating %>"></p>
+              <p class="showEvent-review-card-text"><%= review.comment %></p>
+            </div>
+          </div>
+        <% } %>
+      </div>
+      <%}%>
+  </div>

@@ -1,0 +1,80 @@
+<% layout("/layouts/boilerplate.ejs") %>
+    <h3>Create a New Event</h3>
+    <form method="POST" action="/owners/<%= cafeOwnerId %>/events" novalidate class="needs-validation" enctype="multipart/form-data">
+
+        <div class="row mt-3">
+            <div class="col-8 offset-2">
+                <div class="mb-3 ">
+                    <label for="title" class="form-label">Name of event</label>
+                    <input name="event[title]" placeholder="enter a catchy name" type="text" class="form-control"
+                        required />
+                    <div class="valid-feedback">
+                        name looks good!
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="event[description]" class="form-control" required></textarea>
+                    <div class="invalid-feedback">
+                        Please provide short description of the event
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
+                <label class="input-group-text" for="type">Do you want a singer for the event</label>
+                <select class="form-select" id="type" name="flag" required>
+                  <option selected value="yes">Yes, I want a singer</option>
+                  <option value="no">No, i already has a singer</option>
+                  <option value="noSinger">No, this event don't require a singer</option>
+                </select>
+              </div>
+
+                <div class="mb-3">
+                    <label for="image" class="form-label">Upload event invitation image(if any)</label>
+                    <input name="event[image]" type="file" class="form-control" />
+                    <div class="invalid-feedback">
+                        Please provide image
+                    </div>
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="date" class="form-label">Event date</label>
+                    <input name="event[date]" type="text" class="form-control" />
+                    <div class="invalid-feedback">
+                        Please provide event date
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="time" class="form-label">Event timing</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">HH:MM</span>
+                        <span class="input-group-text">example 17:45</span>
+                        <input name="event[time]" type="text" class="form-control" />
+                        <span class="input-group-text">click the clock</span>
+                    </div>
+                    <div class="invalid-feedback">
+                        Please provide event timings
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label">Price to join the event (if any)</label>
+                        <input name="event[price]" placeholder="99" class="form-control" />
+                        <div class="invalid-feedback">
+                            Price should be valid
+                        </div>
+                    </div>
+                    <button class="btn btn-dark add-btn mt-3">Add</button>
+                </div>
+                <br>
+                <br>
+            </div>
+
+        </div>
+
+    </form>

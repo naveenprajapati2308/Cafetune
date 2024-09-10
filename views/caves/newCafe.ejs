@@ -1,0 +1,65 @@
+<% layout("/layouts/boilerplate.ejs") %>
+  <h3>Create a New Cafe</h3>
+  <form method="POST" action="/owners/<%= ownerId %>" novalidate class="needs-validation" enctype="multipart/form-data">
+
+    <div class="row mt-3">
+      <div class="col-8 offset-2">
+        <div class="mb-3 ">
+          <label for="title" class="form-label">Cafe Name</label>
+          <input name="cafe[title]" placeholder="enter a catchy title" type="text" class="form-control" required/>
+          <div class="valid-feedback">
+            Name looks good!
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea name="cafe[description]" class="form-control" required></textarea>
+          <div class="invalid-feedback">
+            Please provide short description of the place
+          </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="image" class="form-label">Upload cafe image</label>
+            <input name="cafe[image]" type="file" class="form-control" required />
+            <div class="invalid-feedback">
+              Please provide an image
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="mb-3 col-md-4">
+            <label for="price" class="form-label">Phone Number</label>
+            <input name="cafe[phone]" type="number" placeholder="1200" class="form-control" required/>
+            <div class="invalid-feedback">
+              Phone number should be valid
+            </div>
+          </div>
+
+          <div class="mb-3 col-md-8">
+            <label for="title" class="form-label">Country</label>
+            <input name="cafe[country]" placeholder="India" type="text" class="form-control" required/>
+            <div class="invalid-feedback">
+              Country should be valid
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="mb-3">
+          <label for="location" class="form-label">Location</label>
+          <input name="cafe[location]" placeholder="Jaipur, Rajasthan" type="text" class="form-control" required />
+          <div class="invalid-feedback">
+            Location should be valid
+          </div>
+        </div>
+
+        <button class="btn btn-dark add-btn mt-3">Register</button>
+        <br>
+        <br>
+      </div>
+
+    </div>
+
+  </form>

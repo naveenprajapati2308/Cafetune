@@ -1,0 +1,73 @@
+<% layout("/layouts/boilerplate.ejs") %>
+  <h3>Register as a singer</h3>
+  <form method="POST" action="/singers/<%= singerId %>" novalidate class="needs-validation" enctype="multipart/form-data">
+
+    <div class="row mt-3">
+      <div class="col-8 offset-2">
+        <div class="mb-3 ">
+          <label for="fullName" class="form-label">Full Name</label>
+          <input name="singer[fullName]" placeholder="enter your full name" type="text" class="form-control" required/>
+          <div class="valid-feedback">
+            Name looks good!
+          </div>
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Age</label>
+            <input name="singer[Age]" type="number" class="form-control" required />
+            <div class="invalid-feedback">
+              Please provide Age
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="photo" class="form-label">Profile Photo</label>
+            <input name="singer[photo]" type="file" class="form-control" required />
+            <div class="invalid-feedback">
+              Profile image must be provided
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="mb-3 col-md-4">
+            <label for="price" class="form-label">Phone Number</label>
+            <input name="singer[phone]" type="number" placeholder="1200" class="form-control" required/>
+            <div class="invalid-feedback">
+              Phone number should be valid
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input name="singer[location]" placeholder="Jaipur, Rajasthan" type="text" class="form-control" required />
+            <div class="invalid-feedback">
+              Location should be valid
+            </div>
+          </div>
+
+          <div class="mb-3 col-md-8">
+            <label for="title" class="form-label">Country</label>
+            <input name="singer[country]" placeholder="India" type="text" class="form-control" required/>
+            <div class="invalid-feedback">
+              Country should be valid
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="experience" class="form-label">Experience</label>
+            <textarea name="singer[experience]" class="form-control" required></textarea>
+            <div class="invalid-feedback">
+              Please provide short description of your experience
+            </div>
+          </div>
+
+        </div>
+        
+
+        <button class="btn btn-dark add-btn mt-3">Register</button>
+        <br>
+        <br>
+      </div>
+
+    </div>
+
+  </form>

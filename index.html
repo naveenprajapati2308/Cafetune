@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Discover Section</title>
+  <!-- <link rel="stylesheet" href="/css/styles.css"> -->
+</head>
+<style>
+    /* Basic styling for body */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Container for discover section */
+.discover {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: #f8f9fa;
+}
+
+/* Styling for boxes inside discover container */
+.discover-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 1rem;
+  padding: 2rem;
+  width: 100%;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.discover-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive design for medium to large screens */
+@media (min-width: 768px) {
+  .discover {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  /* Allocate 75% space to the first box and 25% to the second */
+  .discover-box:first-child {
+    flex: 3; /* 75% */
+  }
+
+  .discover-box:last-child {
+    flex: 1; /* 25% */
+  }
+}
+
+/* Example styling for the contents inside the boxes */
+.discover-box h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.discover-box p {
+  margin: 1rem 0 0;
+  font-size: 1rem;
+  color: #666;
+}
+
+</style>
+<body>
+  <div class="discover">
+    <div class="discover-box">
+      <h3>Box One</h3>
+      <p>This is the first box content.</p>
+    </div>
+    <div class="discover-box">
+      <h3>Box Two</h3>
+      <p>This is the second box content.</p>
+    </div>
+  </div>
+</body>
+</html>

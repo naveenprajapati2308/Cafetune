@@ -1,0 +1,27 @@
+<% layout("/layouts/boilerplate") %>
+    <style>
+        .confirmation-card {
+            width: 30%;
+        }
+
+        .confirmation-card-text a{
+            text-decoration: none;
+            color: brown;
+            display: block;
+        }
+    </style>
+    <div class="alert alert-warning col-6 offset-3" role="alert">
+        Please confirm that you want to register as a singer?
+    </div>
+    <div class="confirmation-card offset-4">
+        <div class="confirmation-card-text mb-3">
+
+            <a href="/singers/new" class="alert alert-success">
+                Register as a Singer
+            </a>
+        </div>
+        <div class="confirmation-card-text ">
+            <a href="/caves" class="alert alert-success">Go back</a>
+        </div>
+
+    </div>

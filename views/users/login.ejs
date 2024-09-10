@@ -1,0 +1,20 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="row mt-3">
+    <h2 class="col-6 offset-3 brown center">Login on Cafetunes</h2>
+    <div class="col-4 offset-4">
+        <form action="/login" method="POST" novalidate class="needs-validation">
+            <div class="mb-3 ">
+                <label for="username" class="form-label" id="username">Username</label>
+                <input name="username" type="text" class="form-control" required/>
+            </div>
+            <div class="mb-3 ">
+                <label for="password" class="form-label" id="password">Password</label>
+                <input name="password" type="password" class="form-control" required/>
+            </div>
+            <button class="btn btn-success mb-3">Login</button>
+            <br>
+            Don't have an account <a href="/signup" style="text-decoration: none;"><b>signup here</i></b></a>
+        </form>
+    </div>
+</div>

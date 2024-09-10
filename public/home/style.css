@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+* {
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+}
+
+.navbar {
+    padding: 16px 0px 12px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: stretch;
+    background: #ffffff21;
+    width: 100%;
+    transition: .3s linear;
+    z-index: 999;
+}
+
+.navsticky {
+    background: #fff;
+    position: fixed;
+    padding: 8px 0px 8px 0px;
+}
+
+.body {
+    background: #0e1629;
+    padding: 100px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.body span {
+    background: #fff;
+    padding: 5px;
+    font-size: 41px;
+}
+
+.body h1 {
+    font-weight: 300;
+    font-size: 66px;
+    color: #fff;
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #0e1629;
+    outline: none;
+    border: none;
+    padding: 10px;
+    margin-top: 30px;
+    transition: .2s linear;
+    border-radius: 3px;
+}
+
+.btn-white:hover {
+    background: var(--bs-danger);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0px 14px 24px -13px rgb(0, 0, 0, .14);
+}
+
+/* About Section */
+/* Basic styling for body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Container for discover section */
+  .discover {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    /* background-color: #f8f9fa; */
+  }
+  
+  /* Styling for boxes inside discover container */
+  .discover-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    /* align-items: center; */
+    /* background-color: white; */
+    /* border-radius: 10px; */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    /* margin: 1rem; */
+    /* padding: 2rem; */
+    width: 100%;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .discover img {
+        max-width: 90%;
+        height: auto;
+        animation: blob 20s linear infinite;
+        /* Border animation */
+    }
+  /* .discover-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  } */
+  
+  /* Responsive design for medium to large screens */
+  @media (min-width: 768px) {
+    .discover {
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  
+    /* Allocate 75% space to the first box and 25% to the second */
+    .discover-box:first-child {
+      flex: 3; /* 75% */
+    }
+  
+    .discover-box:last-child {
+      flex: 1; /* 25% */
+    }
+  }
+  
+  /* Example styling for the contents inside the boxes */
+  .discover-box h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .discover-box p {
+    margin: 1rem 0 0;
+    font-size: 1rem;
+    color: #666;
+  }
+  
+
+
+@keyframes blob {
+    0% {
+        border-radius: 31% 69% 60% 40% / 37% 35% 65% 63%;
+    }
+
+    20% {
+        border-radius: 52% 48% 46% 54% / 55% 42% 58% 45%;
+    }
+
+    40% {
+        border-radius: 70% 30% 61% 39% / 34% 56% 44% 66%;
+    }
+
+    60% {
+        border-radius: 41% 59% 33% 67% / 58% 42% 58% 42%;
+    }
+
+    80% {
+        border-radius: 61% 39% 54% 46% / 39% 52% 48% 61%;
+    }
+
+    95% {
+        border-radius: 46% 54% 57% 43% / 65% 41% 59% 35%;
+    }
+
+    100% {
+        border-radius: 31% 69% 60% 40% / 37% 35% 65% 63%;
+    }
+}
+
+.divider {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid var(--bs-danger);
+    margin: 40px;
+}
+
+.topdishes {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.card {
+    text-decoration: none;
+    margin: 20px;
+    color: #0e1629;
+    transition: .3s linear;
+}
+
+.card:hover {
+    color: var(--bs-danger);
+}
+
+.card-dishes {
+    max-width: 1260px;
+}
+
+.card img {
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+}

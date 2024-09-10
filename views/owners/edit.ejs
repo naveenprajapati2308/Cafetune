@@ -1,0 +1,82 @@
+<% layout("/layouts/boilerplate") %>
+<style>
+    #edit-page-image{
+        width: 100px;
+    }
+</style>
+  <h3>Edit your Owner profile</h3>
+  <form method="POST" action="/owners/<%= cafe.owner %>/edit" novalidate class="needs-validation" enctype="multipart/form-data">
+    <div class="row mt-3">
+        <div class="mb-3">
+            Current cafe image <br>
+            <img src="<%= cafe.image.url %>" alt="img" id="edit-page-image">
+          </div>
+  
+          <div class="mb-3">
+            <label for="photo" class="form-label">Upload New image</label>
+            <input name="cafe[image]" type="file" class="form-control" />
+          </div> 
+
+        <div class="mb-3 col-md-6">
+          <label for="fullName" class="form-label">Update cafe name</label>
+          <input name="cafe[title]" value="<%= cafe.title %>" type="text" class="form-control" />
+          <div class="invalid-feedback">
+            cafe name should be valid
+          </div>
+          <div class="valid-feedback">
+            Title looks good!
+          </div>
+        </div>
+
+        <div class="mb-3 col-md-6">
+            <label for="phone" class="form-label">Phone</label>
+            <input name="cafe[phone]"  value="<%= cafe.phone %>"placeholder="<%= cafe.phone %>" type="number" class="form-control" ></input>
+            <div class="invalid-feedback">
+              Please enter a phone content
+            </div>
+        </div>
+        
+       
+        
+        <div class="mb-3 col-md-6">
+            <label for="experience" class="form-label">Description</label>
+            <textarea name="cafe[description]" placeholder="<%= cafe.description %>" class="form-control" ><%= cafe.description %></textarea>
+            <div class="invalid-feedback">
+              Please enter a description content
+            </div>
+        </div>
+
+
+
+
+
+        <div class="mb-3 col-md-6">
+          <label for="country" class="form-label">Country</label>
+          <input name="cafe[country]" value="<%= cafe.country %>" type="text" class="form-control" required/>
+          <div class="invalid-feedback">
+            Country should be valid
+          </div>
+        </div>
+        
+        
+
+        <div class="mb-3 col-md-6">
+          <label for="location" class="form-label">Location</label>
+          <input name="cafe[location]" value="<%= cafe.location %>" type="text" class="form-control" required/>
+          <div class="invalid-feedback">
+            Location should be valid
+          </div>
+        </div>
+
+
+       
+
+        
+
+        <button class="btn btn-dark edit-btn mt-3">Edit</button>
+      </div>
+    </div>
+
+    <br><br>
+  </form>
+  </body>
